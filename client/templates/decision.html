@@ -1,12 +1,12 @@
 <template name="decision">
   <div class="jumbotron">
-    <p>The solution will be available in about ___ seconds.</p>
+    <p>The solution will be available in about 20 seconds.</p>
     <div class="progress">
-      <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-        <span class="sr-only">45% Complete</span>
+      <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="45" aria-valuemin="0"
+           aria-valuemax="100" style="width: {{percentage}}%">
       </div>
     </div>
-    <p><a class="btn btn-lg btn-success" href="{{pathFor 'maze'}}" role="button">Solution</a></p>
-    <p><a class="btn btn-lg btn-success" href="{{pathFor 'maze'}}" role="button">Don't wait for solution and start solving</a></p>
+    <p><button id="solution" class="js-solution btn btn-lg btn-success" disabled>Solution</button></p>
+    <p><button class="js-skip btn btn-lg btn-success">Don't wait for solution and start solving</button></p>
   </div>
 </template>

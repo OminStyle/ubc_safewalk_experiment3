@@ -1,10 +1,10 @@
 <template name="landing"><!-- Main component for a primary marketing message or call to action -->
   <div class="jumbotron">
-    <h1>Maze Experiment</h1>
+    <h1>Maze Experiment {{iteration}}</h1>
 
-    <p>You have ___ seconds to finish the maze.</p>
+    <p>You have 60 seconds to finish the maze.</p>
     <p>
-      <a class="btn btn-lg btn-success" href="{{pathFor 'decision'}}" role="button">Start</a>
+      <button class="js-start btn btn-lg btn-success">Start</button>
     </p>
   </div>
 </template>
