@@ -9,3 +9,7 @@ Meteor.publish('experiments', function() {
 Meteor.publish('progresses', function() {
   return Progress.find();
 });
+
+Meteor.publish('distributions', function() {
+  return Distribution.find();
+});
