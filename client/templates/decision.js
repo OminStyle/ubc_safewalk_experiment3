@@ -1,4 +1,7 @@
 Template.decision.helpers({
+  experiment: function() {
+    return Session.get('experiment');
+  },
   percentage: function() {
     return Session.get('waitLeftPercentage');
   },

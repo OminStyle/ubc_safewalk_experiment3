@@ -1,11 +1,14 @@
 <template name="maze">
   <div class="jumbotron">
-    {{#if showSolution}}
-      <p>The solution will disappear in 3 seconds</p>
-      <!-- TODO -->
-      <p>TODO: Place Solution Here</p>
-    {{/if}}
-    <p>TODO: Place maze here</p>
+    <p>Press Done after completing the Maze with your cursor.</p>
+    <p>
+      {{#if showSolution}}
+        <!-- TODO -->
+        <img src="img/maze{{experiment.iteration}}_sol.png">
+      {{/if}}
+      <img src="img/maze{{experiment.iteration}}.png">
+    </p>
+
     <p><a class="js-done btn btn-lg btn-success">Done</a></p>
   </div>
 </template>
