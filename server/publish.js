@@ -1,5 +1,5 @@
-Meteor.publish('mazes', function() {
-  return Maze.find();
+Meteor.publish('userDatas', function() {
+  return UserData.find();
 });
 
 Meteor.publish('progresses', function() {

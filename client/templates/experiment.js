@@ -39,6 +39,7 @@ function experiment() {
     start.userId = Meteor.userId();
     start.iteration = 1;
     Progress.insert(start);
+    UserData.insert({userId: Meteor.userId(), score: 0});
   }
   return Progress.findOne({userId: Meteor.userId()}, {sort: {iteration: -1}});
 }

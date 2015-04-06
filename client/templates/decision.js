@@ -18,7 +18,8 @@ Template.decision.events({
   },
   'click .js-skip': function() {
     Session.set('showSolution', false);
-    Progress.update({_id: Session.get('experiment')._id}, {$set: {decisionTime: decisionTime(), decision: 'skip'}});
+    var pass = (Math.random() < 0.5) ? true : false;
+    Progress.update({_id: Session.get('experiment')._id}, {$set: {decisionTime: decisionTime(), decision: 'skip', pass: pass}});
     Router.go('maze');
   }
 });

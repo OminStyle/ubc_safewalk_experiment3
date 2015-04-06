@@ -17,8 +17,8 @@
       <div class="navbar-collapse collapse">
         {{#if currentUser}}
         <ul class="nav navbar-nav">
-          <li><a>Time left: {{countDown}}s</a></li>
-          <li><a>Points left: ____</a></li>
+          <li><a>Time Left: {{countDown}}s</a></li>
+          <li><a>Total Score: {{score}}</a></li>
         </ul>
         {{/if}}
         <ul class="nav navbar-nav navbar-right">
@@ -34,5 +34,8 @@
     {{>yield}}
   </div>
   <!-- /container -->
+
+  {{>beatenModal}}
+
   </body>
 </template>
