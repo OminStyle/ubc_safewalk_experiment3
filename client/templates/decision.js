@@ -13,11 +13,16 @@ Template.decision.helpers({
 Template.decision.events({
   'click .js-solution': function() {
     Session.set('showSolution', true);
+    Progress.update({_id: Session.get('experiment')._id}, {$set: {decisionTime: decisionTime(), decision: 'solution'}});
     Router.go('maze');
   },
   'click .js-skip': function() {
     Session.set('showSolution', false);
+    Progress.update({_id: Session.get('experiment')._id}, {$set: {decisionTime: decisionTime(), decision: 'skip'}});
     Router.go('maze');
   }
 });
 
+function decisionTime() {
+  return (new Date().getTime() - Session.get('startTime'))/1000;
+}

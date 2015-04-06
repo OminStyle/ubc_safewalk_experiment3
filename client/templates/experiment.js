@@ -9,6 +9,7 @@ Template.experiment.events({
   'click .js-start': function() {
     Session.set('wait', Session.get('experiment').wait); // in seconds
     Session.set('waitLeftPercentage', 100);
+    Session.set('startTime', new Date().getTime());
     Router.go('decision');
   }
 });
