@@ -7,7 +7,9 @@ Template.experiment.helpers({
 
 Template.experiment.events({
   'click .js-start': function() {
-    Session.set('wait', Session.get('experiment').wait); // in seconds
+    var wait = Session.get('experiment').wait;
+    var randomWait = randomInRange(wait, wait+3);
+    Session.set('wait', randomWait); // in seconds
     Session.set('waitLeftPercentage', 100);
     Session.set('startTime', new Date().getTime());
     Router.go('decision');
@@ -42,4 +44,8 @@ function experiment() {
     UserData.insert({userId: Meteor.userId(), score: 0});
   }
   return Progress.findOne({userId: Meteor.userId()}, {sort: {iteration: -1}});
+}
+
+function randomInRange(min, max) {
+  return Math.random() * (max - min) + min;
 }

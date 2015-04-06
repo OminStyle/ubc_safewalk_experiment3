@@ -10,7 +10,7 @@ Template.maze.helpers({
 Template.maze.events({
   'click .js-done': function() {
     var experiment = Progress.findOne({userId: Meteor.userId()}, {sort: {iteration: -1}});
-    if (!experiment.pass) {
+    if (experiment.beaten) {
       $('#beatenModal').modal('show');
     } else {
       var userData = UserData.findOne({userId: Meteor.userId()});

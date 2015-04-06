@@ -7,6 +7,9 @@ Template.decision.helpers({
   },
   solutionAvailable: function() {
     return Session.get('waitLeftPercentage')<= 0;
+  },
+  actualWait: function() {
+    return Session.get('wait');
   }
 });
 
@@ -18,8 +21,8 @@ Template.decision.events({
   },
   'click .js-skip': function() {
     Session.set('showSolution', false);
-    var pass = (Math.random() < 0.5) ? true : false;
-    Progress.update({_id: Session.get('experiment')._id}, {$set: {decisionTime: decisionTime(), decision: 'skip', pass: pass}});
+    var beaten = (Math.random() < 0.5) ? true : false;
+    Progress.update({_id: Session.get('experiment')._id}, {$set: {decisionTime: decisionTime(), decision: 'skip', beaten: beaten}});
     Router.go('maze');
   }
 });
