@@ -19,23 +19,23 @@ Template.maze.events({
     }
     if (experiment.iteration >= 32) {
       Router.go('complete');
-    }
+    } else{
+      var next = {};
+      next.iteration = experiment.iteration + 1;
+      next.userId = Meteor.userId();
+      if (experiment.iteration === 16) {
+        next.feedback = !experiment.feedback;
+      } else {
+        next.feedback = experiment.feedback;
+      }
+      if (experiment.wait === 10) {
+        next.wait = 17;
+      } else {
+        next.wait = 10;
+      }
+      Progress.insert(next);
 
-    var next = {};
-    next.iteration = experiment.iteration + 1;
-    next.userId = Meteor.userId();
-    if (experiment.iteration === 16) {
-      next.feedback = !experiment.feedback;
-    } else {
-      next.feedback = experiment.feedback;
+      Router.go('experiment');
     }
-    if (experiment.wait === 10) {
-      next.wait = 17;
-    } else {
-      next.wait = 10;
-    }
-    Progress.insert(next);
-
-    Router.go('experiment');
   }
 });
