@@ -1,0 +1,25 @@
+<template name="results">
+  <div class="jumbotron">
+    <h1>Results</h1>
+    <table class="table table-hover">
+      <tr>
+        <td><b>#</b></td>
+        <td><b>Feedback</b></td>
+        <td><b>Wait</b></td>
+        <td><b>Decision</b></td>
+        <td><b>Decision Time</b></td>
+        <td><b>Pass</b></td>
+      </tr>
+      {{#each results}}
+        <tr>
+          <td>{{iteration}}</td>
+          <td>{{boolString feedback}}</td>
+          <td>{{wait}}</td>
+          <td>{{decision}}</td>
+          <td>{{decisionTime}}</td>
+          <td>{{boolString pass}}</td>
+        </tr>
+      {{/each}}
+    </table>
+  </div>
+</template>
