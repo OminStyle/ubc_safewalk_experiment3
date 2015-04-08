@@ -28,10 +28,10 @@ Template.maze.events({
       } else {
         next.feedback = experiment.feedback;
       }
-      if (experiment.wait === 10) {
-        next.wait = 17;
+      if (experiment.wait === Session.get('shortWait')) {
+        next.wait = Session.get('longWait');
       } else {
-        next.wait = 10;
+        next.wait = Session.get('shortWait');
       }
       Progress.insert(next);
 

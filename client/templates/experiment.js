@@ -23,19 +23,19 @@ function experiment() {
     switch(type) {
       case 1:
         start.feedback = false;
-        start.wait = 10;
+        start.wait = Session.get('shortWait');
         break;
       case 2:
         start.feedback = true;
-        start.wait = 17;
+        start.wait = Session.get('longWait');;
         break;
       case 3:
         start.feedback = false;
-        start.wait = 17;
+        start.wait = Session.get('longWait');;
         break;
       case 4:
         start.feedback = true;
-        start.wait = 10;
+        start.wait = Session.get('shortWait');;
         break;
     }
     start.userId = Meteor.userId();

@@ -21,7 +21,10 @@ Template.decision.events({
   },
   'click .js-skip': function() {
     Session.set('showSolution', false);
-    var beaten = (Math.random() < 0.5) ? true : false;
+    var beaten = (Math.random() < Session.get('loseRate')) ? true : false;
+    if (beaten) {
+      Session.set('countDown', 5);
+    }
     Progress.update({_id: Session.get('experiment')._id}, {$set: {decisionTime: decisionTime(), decision: 'skip', beaten: beaten}});
     Router.go('maze');
   }
