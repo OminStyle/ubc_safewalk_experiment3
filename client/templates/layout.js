@@ -7,9 +7,6 @@ Template.layout.helpers({
   },
   score: function() {
     return UserData.findOne({userId: Meteor.userId()}).score;
-  },
-  currentTime: function(){
-    var d = new Date();
-    return d.getHours()+":"+ d.getMinutes();
   }
+
 });
