@@ -17,8 +17,9 @@
       <div class="navbar-collapse collapse">
         {{#if currentUser}}
         <ul class="nav navbar-nav">
-          <!--<li><a><b>Time Left: <span style="color: #FF0000">{{countDown}}</span>s</b></a></li>-->
-          <li><a>Total Score: {{score}}</a></li>
+            <!--<li><a><b>Time Left: <span style="color: #FF0000">{{countDown}}</span>s</b></a></li>-->
+            <li><a>Current time <b><span id="time"></span></b></a></li>
+            <li><a>Total Score: <b>{{score}}</b></a></li>
         </ul>
         {{/if}}
         <ul class="nav navbar-nav navbar-right">
@@ -36,6 +37,15 @@
   <!-- /container -->
 
   {{>beatenModal}}
+
+  <script>
+      var myVar=setInterval(function(){currentTime()},1000);
+
+      function currentTime(){
+              var d = new Date();
+              document.getElementById("time").innerHTML = d.getHours().toString() + ":" + d.getMinutes().toString() + ":" + d.getSeconds().toString();
+      }
+  </script>
 
   </body>
 </template>

@@ -8,4 +8,5 @@ Template.layout.helpers({
   score: function() {
     return UserData.findOne({userId: Meteor.userId()}).score;
   }
+
 });
