@@ -7,5 +7,11 @@ Template.layout.helpers({
   },
   score: function() {
     return UserData.findOne({userId: Meteor.userId()}).score;
+  },
+  currentTime: function(){
+    var d = new Date();
+    var t = d.getHours();
+    var m = d.getMinutes();
+    return d.getHours()+":"+ d.getMinutes();
   }
 });
