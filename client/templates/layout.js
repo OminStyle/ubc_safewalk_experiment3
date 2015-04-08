@@ -10,8 +10,6 @@ Template.layout.helpers({
   },
   currentTime: function(){
     var d = new Date();
-    var t = d.getHours();
-    var m = d.getMinutes();
     return d.getHours()+":"+ d.getMinutes();
   }
 });
